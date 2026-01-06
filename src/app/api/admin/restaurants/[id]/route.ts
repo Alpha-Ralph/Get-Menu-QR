@@ -1,13 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { NextResponse } from "next/server"
+import { prisma } from "@/lib/prisma"
+
+export const runtime = "nodejs"
 
 // PATCH - Toggle restaurant active status
-export async function PATCH(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PATCH(req: Request, context: any) {
   try {
-    const { id } = params
+    const { id } = context.params
 
     // Get current restaurant
     const restaurant = await prisma.restaurant.findUnique({
@@ -16,7 +15,7 @@ export async function PATCH(
 
     if (!restaurant) {
       return NextResponse.json(
-        { error: 'Restaurant not found' },
+        { error: "Restaurant not found" },
         { status: 404 }
       )
     }
@@ -30,13 +29,15 @@ export async function PATCH(
     const { password, ...restaurantData } = updated
 
     return NextResponse.json({
-      message: `Restaurant ${restaurantData.isActive ? 'activated' : 'deactivated'} successfully`,
+      message: `Restaurant ${
+        restaurantData.isActive ? "activated" : "deactivated"
+      } successfully`,
       restaurant: restaurantData
     })
   } catch (error) {
-    console.error('Error toggling restaurant status:', error)
+    console.error("Error toggling restaurant status:", error)
     return NextResponse.json(
-      { error: 'Failed to update restaurant status' },
+      { error: "Failed to update restaurant status" },
       { status: 500 }
     )
   }
