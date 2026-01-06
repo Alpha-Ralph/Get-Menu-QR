@@ -110,7 +110,7 @@ export default function AdminLogin() {
             </button>
           </form>
           <p className="mt-6 text-center text-xs text-gray-500">
-            Default credentials: admin / admin123
+            
           </p>
         </div>
       </div>
