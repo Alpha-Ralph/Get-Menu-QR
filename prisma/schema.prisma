@@ -24,6 +24,8 @@ model Restaurant {
   description String?
   website     String?
   logo        String?
+  currency    String     @default("USD")
+  categories  Json       @default("[\"Appetizers\", \"Main Course\", \"Desserts\", \"Beverages\", \"Specials\"]")
   isActive    Boolean    @default(true)
   joinedAt    DateTime   @default(now())
   createdAt   DateTime   @default(now())

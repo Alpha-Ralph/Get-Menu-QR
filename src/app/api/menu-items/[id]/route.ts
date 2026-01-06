@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 // PUT update menu item
 export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  request: Request,
+  context: any
 ) {
   try {
-    const { id } = params
+    const id = context.params.id
     const body = await request.json()
     const { name, description, price, category, image } = body
 
@@ -38,11 +38,11 @@ export async function PUT(
 
 // DELETE menu item
 export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  request: Request,
+  context: any
 ) {
   try {
-    const { id } = params
+    const id = context.params.id
 
     await prisma.menuItem.delete({
       where: { id }

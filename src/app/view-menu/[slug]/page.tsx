@@ -197,19 +197,16 @@ export default function ViewMenu() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white mt-12 py-6">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-          <p className="mb-2">Powered by Get Menu QR</p>
-          <p>
-            <a
-              href="https://DoneDL.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-600 hover:text-indigo-700 font-semibold"
-            >
-              Powered By DoneDL
-            </a>
-          </p>
+      <footer className="bg-white mt-12 py-6 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <a
+            href="https://DoneDL.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 hover:text-indigo-700 font-semibold text-base"
+          >
+            Powered By DoneDL
+          </a>
         </div>
       </footer>
     </div>

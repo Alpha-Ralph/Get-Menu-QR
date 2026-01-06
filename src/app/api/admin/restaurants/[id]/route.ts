@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 // PATCH - Toggle restaurant active status
 export async function PATCH(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  request: Request,
+  context: any
 ) {
   try {
-    const { id } = params
+    const id = context.params.id
 
     // Get current restaurant
     const restaurant = await prisma.restaurant.findUnique({

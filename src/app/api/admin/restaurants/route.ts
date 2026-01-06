@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 // GET all restaurants with menu item counts
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   try {
     const restaurants = await prisma.restaurant.findMany({
       include: {

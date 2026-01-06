@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcrypt'
 
 // GET restaurant by slug
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
     const slug = searchParams.get('slug')
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 }
 
 // PATCH update restaurant
-export async function PATCH(request: NextRequest) {
+export async function PATCH(request: Request) {
   try {
     const body = await request.json()
     const { slug, name, email, phone, address, description, website, logo, currentPassword, newPassword } = body

@@ -83,7 +83,7 @@ export default function MenuManagement() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          slug: user.slug,
+          restaurantSlug: user.slug,
           name: formData.name,
           description: formData.description,
           price: parseFloat(formData.price),
